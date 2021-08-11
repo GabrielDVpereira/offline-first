@@ -1,11 +1,15 @@
 import React from 'react';
 import styles from './styles';
-import { SafeAreaView, View, Text } from 'react-native';
+import { SafeAreaView, Text } from 'react-native';
+import { useItems } from '../../hooks';
 
 export function HomeScreen() {
+    const { items } = useItems();
     return (
         <SafeAreaView style={styles.container}>
-            <Text>Home Screen</Text>
+            {items.map(item => (
+                <Text key={item.id}>{item.title}</Text>
+            ))}
         </SafeAreaView>
     )
 }
