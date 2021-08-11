@@ -32,7 +32,12 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
     }, [isConnected]);
 
     const syncDatabase = async (): Promise<void> => {
-        const offlineItems = items.filter(item => item.offline);
+        const offlineItems = items.filter(item => {
+            if (item.offline) {
+                delete item.offline
+                return true;
+            }
+        })
         await ItemsService.syncItemsDatabase(offlineItems);
         const newItems = items.map(item => ({ ...item, offline: false }))
         setOfflineItemsIds([]);
@@ -41,7 +46,7 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
 
     const createItem = async (item: Item): Promise<void> => {
         if (isConnected) {
-            await ItemsService.crateItem(item);
+            await ItemsService.createItem(item);
             setItems([...items, item]);
         } else {
             const offlineItem = {
