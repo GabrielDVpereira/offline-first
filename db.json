@@ -1,0 +1,15 @@
+{
+    "items": [
+        {
+            "id": 1,
+            "title": "Study Flutter",
+            "description": "Buy the rodrigo's manguinho course and finish it",
+            "done": false
+        },
+        {
+            "id": 2,
+            "title": "Go to the gym",
+            "description": "Go to the gym at least 3 times"
+        }
+    ]
+}

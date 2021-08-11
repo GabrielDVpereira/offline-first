@@ -5,9 +5,13 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "server": "json-server --watch db.json --delay 300 --port 5000"
   },
   "dependencies": {
+    "@react-native-async-storage/async-storage": "^1.15.5",
+    "@react-native-community/netinfo": "^6.0.0",
+    "axios": "^0.21.1",
     "expo": "~42.0.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
@@ -19,6 +23,7 @@
     "@babel/core": "^7.9.0",
     "@types/react": "~16.9.35",
     "@types/react-native": "~0.63.2",
+    "json-server": "^0.16.3",
     "typescript": "~4.0.0"
   },
   "private": true
