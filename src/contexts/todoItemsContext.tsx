@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useEffect } from 'react';
+import React, { createContext, ReactNode, useEffect, useCallback } from 'react';
 import { useConnectionInfo, usePersistentState } from '../hooks';
 import { Item } from '../interfaces/item';
 import * as ItemsService from '../services/items';
@@ -44,7 +44,7 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
         setItems(newItems);
     }
 
-    const createItem = async (item: Item): Promise<void> => {
+    const createItem = useCallback(async (item: Item): Promise<void> => {
         if (isConnected) {
             await ItemsService.createItem(item);
             setItems([...items, item]);
@@ -56,7 +56,7 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
             setOfflineItemsIds([...offlineItemsIds, item.id]);
             setItems([...items, offlineItem]);
         }
-    }
+    }, [setItems, setOfflineItemsIds])
 
     const getItems = async (): Promise<void> => {
         const { data } = await ItemsService.getItems();
