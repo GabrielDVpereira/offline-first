@@ -1,12 +1,11 @@
-import React, { ReactNode } from 'react';
-import { TextInput, TextInputProps } from 'react-native'
+import React from 'react';
+import { TextInput, TextInputProps, StyleSheet } from 'react-native'
 import styles from './styles';
 
 interface InputProps extends TextInputProps {
-    children: ReactNode;
-    inputStyle: Object;
+    inputStyle?: Object | Object[];
 }
 
-export function Input({ children, inputStyle, ...rest }: InputProps) {
-    return <TextInput style={[styles.input, inputStyle]} {...rest} />
+export function Input({ inputStyle, ...rest }: InputProps) {
+    return <TextInput style={[styles.input, StyleSheet.flatten(inputStyle)]} {...rest} />
 }

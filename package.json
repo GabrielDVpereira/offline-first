@@ -9,10 +9,13 @@
     "server": "json-server --watch db.json --delay 300 --port 5000"
   },
   "dependencies": {
+    "@expo-google-fonts/montserrat": "^0.2.0",
     "@react-native-async-storage/async-storage": "^1.15.5",
     "@react-native-community/netinfo": "^6.0.0",
     "axios": "^0.21.1",
     "expo": "~42.0.1",
+    "expo-app-loading": "^1.1.2",
+    "expo-font": "~9.2.1",
     "expo-status-bar": "~1.0.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",

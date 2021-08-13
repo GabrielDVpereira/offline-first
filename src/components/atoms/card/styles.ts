@@ -3,8 +3,9 @@ import { BLACK, WHITE } from '../../../constants';
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: 5,
+        borderRadius: 10,
         padding: 16,
+        paddingBottom: 30,
         backgroundColor: WHITE,
         shadowColor: BLACK,
         shadowOffset: {

@@ -7,8 +7,23 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
     todoListContainer: {
-        maxHeight: HEIGHT * 0.6,
+        maxHeight: HEIGHT,
     },
+    title: {
+        alignSelf: 'center',
+        marginBottom: 26
+    },
+    cardTitle: {
+        marginBottom: 10
+    },
+    createButton: {
+        position: 'absolute',
+        bottom: 0,
+        right: 20,
+        width: 40,
+        height: 40,
+        borderRadius: 20
+    }
 })
 
 export default styles;
