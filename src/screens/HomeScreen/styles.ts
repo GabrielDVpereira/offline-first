@@ -7,7 +7,7 @@ const styles = StyleSheet.create({
         marginBottom: 8
     },
     todoListContainer: {
-        maxHeight: HEIGHT,
+        height: HEIGHT * 0.5,
     },
     title: {
         alignSelf: 'center',
@@ -19,10 +19,9 @@ const styles = StyleSheet.create({
     createButton: {
         position: 'absolute',
         bottom: 0,
+        paddingVertical: 10,
+        paddingHorizontal: 10,
         right: 20,
-        width: 40,
-        height: 40,
-        borderRadius: 20
     }
 })
 

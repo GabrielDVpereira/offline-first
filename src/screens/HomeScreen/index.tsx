@@ -27,6 +27,7 @@ export function HomeScreen() {
         <BaseContainer >
             <Text type="h2" textStyle={styles.title}>Offline First Todo List ✨</Text>
             <FlatList
+                contentContainerStyle={{ flex: 1 }}
                 style={styles.todoListContainer}
                 data={items}
                 keyExtractor={item => String(item.id)}

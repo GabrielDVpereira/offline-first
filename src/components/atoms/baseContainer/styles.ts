@@ -4,7 +4,6 @@ import { BACKGROUND, HEIGHT } from '../../../constants';
 const styles = StyleSheet.create({
     container: {
         backgroundColor: BACKGROUND,
-        height: HEIGHT,
         flex: 1,
     },
     content: {
