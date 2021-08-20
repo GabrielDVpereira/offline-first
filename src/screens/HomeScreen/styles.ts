@@ -6,9 +6,6 @@ const styles = StyleSheet.create({
     card: {
         marginBottom: 8
     },
-    todoListContainer: {
-        height: HEIGHT * 0.5,
-    },
     title: {
         alignSelf: 'center',
         marginBottom: 26
@@ -19,10 +16,18 @@ const styles = StyleSheet.create({
     createButton: {
         position: 'absolute',
         bottom: 0,
-        paddingVertical: 10,
-        paddingHorizontal: 10,
         right: 20,
-    }
+        paddingVertical: 0,
+        paddingHorizontal: 0,
+        width: 40,
+        height: 40,
+        borderRadius: 999,
+    },
+    createButtonText: {
+        fontSize: 28,
+    },
+    emptyListContainer: { width: '100%', alignItems: 'center', marginTop: 100 },
+    emptyListImage: { width: 300, height: 300 }
 })
 
 export default styles;

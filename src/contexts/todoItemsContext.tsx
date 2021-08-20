@@ -7,6 +7,7 @@ import * as ItemsService from '../services/items';
 interface ItemContextInfo {
     items: Item[];
     createItem: (item: Item) => Promise<void>
+    deleteItem: (id: number) => Promise<void>
 }
 
 interface ItemContextProps {
@@ -56,7 +57,14 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
             setOfflineItemsIds([...offlineItemsIds, item.id]);
             setItems([...items, offlineItem]);
         }
-    }, [setItems, setOfflineItemsIds])
+    }, [setItems, setOfflineItemsIds]);
+
+    const deleteItem = useCallback(async (id: number): Promise<void> => {
+        console.log(id)
+        await ItemsService.deleteItem(id);
+        const newItems = items.filter(item => item.id !== id);
+        setItems(newItems)
+    }, [setItems])
 
     const getItems = async (): Promise<void> => {
         const { data } = await ItemsService.getItems();
@@ -64,7 +72,7 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
     }
 
     return (
-        <ItemContext.Provider value={{ items, createItem }}>
+        <ItemContext.Provider value={{ items, createItem, deleteItem }}>
             {children}
         </ItemContext.Provider>
     )
