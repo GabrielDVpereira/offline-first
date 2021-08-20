@@ -50,6 +50,7 @@ export function HomeScreen() {
                         rightButtonContentStyle={{ backgroundColor: RED }}
                         cardStyles={styles.card}
                     >
+                        {item.offline && <View style={styles.offlineIndicator} />}
                         <Text type="h3" textStyle={styles.cardTitle}>{item.title}</Text>
                         <Text>{item.description}</Text>
                     </SwipeableCard>

@@ -20,7 +20,6 @@ export default function ItemContextProvider({ children }: ItemContextProps) {
     const [items, setItems] = usePersistentState<Item[]>('@items', []);
     const [offlineItemsIds, setOfflineItemsIds] = usePersistentState<number[]>('@items:offline', []);
     const { isConnected } = useConnectionInfo();
-
     useEffect(() => {
         getItems()
     }, []);

@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
-import { HEIGHT } from '../../constants';
+import { HEIGHT, RED } from '../../constants';
 
 const styles = StyleSheet.create({
     container: {},
     card: {
-        marginBottom: 8
+        marginBottom: 8,
+        position: 'relative',
     },
     title: {
         alignSelf: 'center',
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
         fontSize: 28,
     },
     emptyListContainer: { width: '100%', alignItems: 'center', marginTop: 100 },
-    emptyListImage: { width: 300, height: 300 }
+    emptyListImage: { width: 300, height: 300 },
+    offlineIndicator: { backgroundColor: RED, width: 10, height: 10, position: 'absolute', borderRadius: 10, right: 10, top: 10 }
 })
 
 export default styles;
