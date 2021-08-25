@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { TouchableOpacity } from 'react-native'
-import { FontAwesome } from '@expo/vector-icons';
+import { TouchableOpacity, Image, ActivityIndicator, View } from 'react-native'
+import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { BLACK, PRIMARY } from '../../../constants';
+import { BLACK, GRAY, PRIMARY, SECONDARY } from '../../../constants';
 import { Text } from '../../atoms';
+import styles from './styles';
 
 interface ImageSelectProps {
     onImageSelected?: (imageUri: string) => void;
@@ -14,6 +15,7 @@ export function ImageSelect({ onImageSelected }: ImageSelectProps) {
 
     const handleImageSelect = async () => {
         let result = await ImagePicker.launchImageLibraryAsync({
+            base64: true,
             mediaTypes: ImagePicker.MediaTypeOptions.Images,
             allowsEditing: true,
             aspect: [4, 3],
@@ -29,13 +31,14 @@ export function ImageSelect({ onImageSelected }: ImageSelectProps) {
     return (
         <TouchableOpacity
             onPress={handleImageSelect}
+            style={styles.galeryButton}
         >
-            <FontAwesome
+            <Feather
                 name="image"
-                siz={24}
-                color={imageUri ? PRIMARY : BLACK}
+                size={50}
+                color={imageUri ? PRIMARY : GRAY}
             />
-            {imageUri && <Text>Edit</Text>}
+            {!!imageUri && <Text textStyle={styles.edit}>Edit</Text>}
         </TouchableOpacity>
     )
 }

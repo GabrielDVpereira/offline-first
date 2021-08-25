@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { LayoutAnimation, Image } from 'react-native';
 import { useItems } from '../../../hooks';
 import { Text, Input } from '../../atoms';
-import { Button, Modal } from '../../molecules';
+import { Button, Modal, ImageSelect } from '../../molecules';
 import { Audio } from 'expo-av';
 
 interface NewItemModalProps {
@@ -74,6 +74,8 @@ export function NewItemModal({ modalVisible, toggleModal }: NewItemModalProps) {
 
     return (
         <Modal visible={modalVisible} toggle={toggleModal}>
+
+
             <Text>New Item</Text>
             <Input
                 value={title}
@@ -85,14 +87,14 @@ export function NewItemModal({ modalVisible, toggleModal }: NewItemModalProps) {
                 placeholder="Item Description"
                 onChangeText={(text) => setDescription(text)}
             />
-            <Button onPress={recording ? stopRecording : startRecording}>
+            {/* <Button onPress={recording ? stopRecording : startRecording}>
                 {recording ? 'Stop Record' : 'Record'}
             </Button>
 
             <Button onPress={playAudio}>
                 Play audio
-            </Button>
-
+            </Button> */}
+            <ImageSelect />
             <Button onPress={() => {
                 LayoutAnimation.configureNext(LayoutAnimation.Presets.linear)
                 handleCreatePress()
