@@ -3,6 +3,7 @@ import styles from './styles';
 import { FlatList, LayoutAnimation, Image, View } from 'react-native';
 import { BaseContainer, Text, Input } from '../../components/atoms';
 import { Button, Modal, SwipeableCard } from '../../components/molecules';
+import { NewItemModal } from '../../components/organisms';
 import { useItems } from '../../hooks';
 import { Feather } from "@expo/vector-icons";
 import { RED, WHITE } from '../../constants';
@@ -10,25 +11,12 @@ import emptyImage from '../../assets/images/empty.png';
 
 
 export function HomeScreen() {
-    const { items, createItem, deleteItem } = useItems();
-
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-
+    const { items, deleteItem } = useItems();
     const [modalVisible, setModalVisible] = useState(false);
-
-
     const toggleModal = () => setModalVisible(oldState => !oldState);
 
-    const handleCreatePress = () => {
-        setTitle('')
-        setDescription('')
-        createItem({ id: Math.random(), title, description, done: false })
-        toggleModal()
-    };
-
     return (
-        <BaseContainer >
+        <BaseContainer>
             <Text type="h2" textStyle={styles.title}>Offline First Todo List ✨</Text>
             <FlatList
                 data={items}
@@ -58,25 +46,10 @@ export function HomeScreen() {
             />
 
 
-            <Modal visible={modalVisible} toggle={toggleModal}>
-                <Text>New Item</Text>
-                <Input
-                    value={title}
-                    placeholder="Item Title"
-                    onChangeText={(text) => setTitle(text)}
-                />
-                <Input
-                    value={description}
-                    placeholder="Item Description"
-                    onChangeText={(text) => setDescription(text)}
-                />
-                <Button onPress={() => {
-                    LayoutAnimation.configureNext(LayoutAnimation.Presets.linear)
-                    handleCreatePress()
-                }}>
-                    Create item
-                </Button>
-            </Modal>
+            <NewItemModal
+                modalVisible={modalVisible}
+                toggleModal={toggleModal}
+            />
 
             <Button onPress={toggleModal} buttonStyle={styles.createButton} textStyle={styles.createButtonText}>
                 +
