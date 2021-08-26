@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Image, ActivityIndicator, View } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
-import { BLACK, GRAY, PRIMARY, SECONDARY } from '../../../constants';
+import { GRAY, PRIMARY } from '../../../constants';
 import { Text } from '../../atoms';
 import styles from './styles';
 

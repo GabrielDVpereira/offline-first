@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     galeryButton: {
         alignSelf: 'flex-start',
         alignItems: 'center',
-        marginVertical: 20,
+        marginVertical: 10,
     }
 
 });
