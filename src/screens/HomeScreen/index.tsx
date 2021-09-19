@@ -3,7 +3,7 @@ import styles from './styles';
 import { FlatList, LayoutAnimation, Image, View } from 'react-native';
 import { BaseContainer, Text, Input } from '../../components/atoms';
 import { Button, Modal, SwipeableCard } from '../../components/molecules';
-import { NewItemModal } from '../../components/organisms';
+import { NewItemModal, FloatingButtonPage } from '../../components/organisms';
 import { useItems } from '../../hooks';
 import { Feather } from "@expo/vector-icons";
 import { RED, WHITE } from '../../constants';
@@ -46,14 +46,15 @@ export function HomeScreen() {
             />
 
 
-            <NewItemModal
+            {/* <NewItemModal
                 modalVisible={modalVisible}
                 toggleModal={toggleModal}
             />
 
             <Button onPress={toggleModal} buttonStyle={styles.createButton} textStyle={styles.createButtonText}>
                 +
-            </Button>
+            </Button> */}
+            <FloatingButtonPage />
         </BaseContainer >
     )
 }

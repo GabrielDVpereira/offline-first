@@ -5,7 +5,6 @@ import { Audio } from 'expo-av';
 import { AntDesign } from '@expo/vector-icons';
 import { GRAY, PRIMARY } from '../../../constants';
 
-
 export function AudioRecord() {
     const [sound, setSound] = useState<Audio.Sound>();
     const [recording, setRecording] = useState<Audio.Recording>();
