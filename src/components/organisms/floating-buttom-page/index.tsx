@@ -1,28 +1,23 @@
 import React, {useState} from 'react'; 
 import { View, LayoutAnimation, TouchableOpacity, Text } from 'react-native'; 
 import { HEIGHT, PRIMARY, SECONDARY, WHITE, WIDTH } from '../../../constants';
+import styles from './styles'; 
 
 export function FloatingButtonPage(){
     const [visible, setVisible] = useState(false); 
 
     const renderFormPage = () => {
         return (
-            <View style={{backgroundColor: WHITE, width: '100%', height: '100%', 
-            justifyContent: 'center', alignItems: 'center'}}>
+            <View style={styles.pageContainer}>
                 <TouchableOpacity
-                style={{
-                    backgroundColor: SECONDARY, 
-                    padding: 10, 
-                    borderRadius: 10, 
-                    marginTop: 10,
-                }}
+                style={styles.closeButton}
                 onPress={() => {
                     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
                     setVisible(false)
                 }}
                 >
                     <Text
-                        style={{color: WHITE, fontSize: 20}}
+                        style={styles.buttonText}
                     >
                     Close
                     </Text>
@@ -37,15 +32,7 @@ export function FloatingButtonPage(){
                     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
                     setVisible(true)
                     }}
-                style={{
-                    width: '100%', 
-                    height: '100%', 
-                    borderRadius: 50, 
-                    backgroundColor: PRIMARY,
-                    justifyContent: 'center', 
-                    alignItems: 'center',
-                   
-                }}
+                style={styles.floatingButton}
             >
                 <Text
                     style={{color: WHITE}}
@@ -58,15 +45,7 @@ export function FloatingButtonPage(){
 
     return (
         <View
-            style={visible ? {
-                position: 'absolute', width: WIDTH, height: HEIGHT,
-            } : { 
-                position: 'absolute',
-                width: 50, 
-                height: 50,
-                bottom: 10, 
-                right: 10
-             }}
+            style={visible ? styles.containerActive : styles.containerInactive}
         >
            { visible ? renderFormPage() : renderButton()}
         </View>
